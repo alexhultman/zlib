@@ -198,7 +198,7 @@ local const config configuration_table[10] = {
  * bit values at the expense of memory usage). We slide even when level == 0 to
  * keep the hash table consistent if we switch back to level > 0 later.
  */
-local void slide_hash(s)
+__attribute__((no_sanitize("memory"))) local void slide_hash(s)
     deflate_state *s;
 {
     unsigned n, m;
